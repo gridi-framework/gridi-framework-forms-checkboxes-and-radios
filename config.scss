@@ -1,0 +1,16 @@
+//Checkbox and Radio
+$checkbox-radio-margin-top: 0 !default;
+$checkbox-radio-margin-bottom: 0 !default;
+$checkbox-radio-margin-left: 0 !default;
+$checkbox-radio-margin-right: 5px !default;
+//Defined margins for each screens.
+$checkbox-radio-margin-for-screens: () !default;
+/*$checkbox-radio-margin-for-screens: (
+    s1: (
+        top: 20px, //Not required. Define only the margins values you want to change. Example - s2: ( top: 20px ) - change only top margin for screens greater than s2
+        bottom: 20px,
+        left: 20px,
+        right: 20px,
+    ),
+    ...
+) !default;*/

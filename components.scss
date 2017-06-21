@@ -1,0 +1,32 @@
+//Checkbox and Radio
+input[type="checkbox"],
+input[type="radio"] {
+    display: inline-block;
+    @include include-element-margin($checkbox-radio-margin-top, $checkbox-radio-margin-bottom, $checkbox-radio-margin-left, $checkbox-radio-margin-right, $checkbox-radio-margin-for-screens);
+    outline: 0;
+    border: 0;
+    background: transparent;
+    padding: 0;
+    vertical-align: middle;
+    font: inherit;
+    color: inherit;
+    @include border-radius(0);
+    @include box-shadow(none);
+
+    &::-moz-focus-inner {
+        margin: 0;
+        outline: 0;
+        border: 0;
+        padding: 0;
+    }
+
+    &[disabled] {
+        cursor: default;
+    }
+
+    ~ label {
+        display: inline-block;
+        margin: 0;
+        vertical-align: middle;
+    }
+}
