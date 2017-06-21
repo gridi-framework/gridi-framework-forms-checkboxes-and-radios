@@ -23,8 +23,5 @@
         "**/*.json",
         "node_modules",
         "bower_components"
-    ],
-    "dependencies": {
-        "gridi-framework-core": "*"
-    }
+    ]
 }
