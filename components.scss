@@ -1,19 +1,34 @@
 //Checkbox and Radio
 input[type="checkbox"],
 input[type="radio"] {
-    display: inline-block;
-    @include include-element-margin($checkbox-radio-margin-top, $checkbox-radio-margin-bottom, $checkbox-radio-margin-left, $checkbox-radio-margin-right, $checkbox-radio-margin-for-screens);
-    outline: 0;
-    border: 0;
-    background: transparent;
-    padding: 0;
-    vertical-align: middle;
-    font: inherit;
-    color: inherit;
-    @include border-radius(0);
-    @include box-shadow(none);
+    @if $checkbox-display == $radio-display {
+        display: $checkbox-display;
+    }
+    @if (
+        $checkbox-margin-top == $radio-margin-top and
+        $checkbox-margin-bottom == $radio-margin-bottom and
+        $checkbox-margin-left == $radio-margin-left and
+        $checkbox-margin-right == $radio-margin-right
+    ) {
+        @include margin-shorthand((
+            top: $checkbox-margin-top,
+            bottom: $checkbox-margin-bottom,
+            left: $checkbox-margin-left,
+            right: $checkbox-margin-right
+        ));
+    }
+    @if $checkbox-margin-for-screens == $radio-margin-for-screens {
+        @include margin-shorthand-with-screens-support((), $checkbox-margin-for-screens);
+    }
+    @if $checkbox-vertical-align == $radio-vertical-align {
+        vertical-align: $checkbox-vertical-align;
+    }
+    @if mixin-exists(heckbox-radio-extra-style) {
+        @include checkbox-radio-extra-style();
+    }
 
-    &::-moz-focus-inner {
+    &::-moz-focus-inner,
+    &::-moz-focus-outer {
         margin: 0;
         outline: 0;
         border: 0;
@@ -21,12 +36,171 @@ input[type="radio"] {
     }
 
     &[disabled] {
-        cursor: default;
+        @if $checkbox-disabled-cursor == $radio-disabled-cursor {
+            cursor: $checkbox-disabled-cursor;
+        }
+        @if mixin-exists(checkbox-radio-disabled-extra-style) {
+            @include checkbox-radio-disabled-extra-style();
+        }
     }
 
     ~ label {
-        display: inline-block;
-        margin: 0;
-        vertical-align: middle;
+        @if $checkbox-label-display == $radio-label-display {
+            display: $checkbox-label-display;
+        }
+        @if (
+            $checkbox-label-margin-top == $radio-label-margin-top and
+            $checkbox-label-margin-bottom == $radio-label-margin-bottom and
+            $checkbox-label-margin-left == $radio-label-margin-left and
+            $checkbox-label-margin-right == $radio-label-margin-right
+        ) {
+            @include margin-shorthand((
+                top: $checkbox-label-margin-top,
+                bottom: $checkbox-label-margin-bottom,
+                left: $checkbox-label-margin-left,
+                right: $checkbox-label-margin-right
+            ));
+        }
+        @if $checkbox-label-margin-for-screens == $radio-label-margin-for-screens {
+            @include margin-shorthand-with-screens-support((), $checkbox-label-margin-for-screens);
+        }
+        @if $checkbox-label-vertical-align == $radio-label-vertical-align {
+            vertical-align: $checkbox-label-vertical-align;
+        }
+        @if mixin-exists(checkbox-radio-label-extra-style) {
+            @include checkbox-radio-label-extra-style();
+        }
+    }
+}
+
+//Checkbox
+input[type="checkbox"] {
+    @if $checkbox-display != $radio-display {
+        display: $checkbox-display;
+    }
+    @if (
+        $checkbox-margin-top != $radio-margin-top or
+        $checkbox-margin-bottom != $radio-margin-bottom or
+        $checkbox-margin-left != $radio-margin-left or
+        $checkbox-margin-right != $radio-margin-right
+    ) {
+        @include margin-shorthand((
+            top: $checkbox-margin-top,
+            bottom: $checkbox-margin-bottom,
+            left: $checkbox-margin-left,
+            right: $checkbox-margin-right
+        ));
+    }
+    @if $checkbox-margin-for-screens != $radio-margin-for-screens {
+        @include margin-shorthand-with-screens-support((), $checkbox-margin-for-screens);
+    }
+    @if $checkbox-vertical-align != $radio-vertical-align {
+        vertical-align: $checkbox-vertical-align;
+    }
+    @if mixin-exists(checkbox-extra-style) {
+        @include checkbox-extra-style();
+    }
+
+    &[disabled] {
+        @if $checkbox-disabled-cursor != $radio-disabled-cursor {
+            cursor: $checkbox-disabled-cursor;
+        }
+        @if mixin-exists(checkbox-disabled-extra-style) {
+            @include checkbox-disabled-extra-style();
+        }
+    }
+
+    ~ label {
+        @if $checkbox-label-display != $radio-label-display {
+            display: $checkbox-label-display;
+        }
+        @if (
+            $checkbox-label-margin-top != $radio-label-margin-top or
+            $checkbox-label-margin-bottom != $radio-label-margin-bottom or
+            $checkbox-label-margin-left != $radio-label-margin-left or
+            $checkbox-label-margin-right != $radio-label-margin-right
+        ) {
+            @include margin-shorthand((
+                top: $checkbox-label-margin-top,
+                bottom: $checkbox-label-margin-bottom,
+                left: $checkbox-label-margin-left,
+                right: $checkbox-label-margin-right
+            ));
+        }
+        @if $checkbox-label-margin-for-screens != $radio-label-margin-for-screens {
+            @include margin-shorthand-with-screens-support((), $checkbox-label-margin-for-screens);
+        }
+        @if $checkbox-label-vertical-align != $radio-label-vertical-align {
+            vertical-align: $checkbox-label-vertical-align;
+        }
+        @if mixin-exists(checkbox-label-extra-style) {
+            @include checkbox-label-extra-style();
+        }
+    }
+}
+
+//Radio
+input[type="radio"] {
+    @if $checkbox-display != $radio-display {
+        display: $radio-display;
+    }
+    @if (
+        $checkbox-margin-top != $radio-margin-top or
+        $checkbox-margin-bottom != $radio-margin-bottom or
+        $checkbox-margin-left != $radio-margin-left or
+        $checkbox-margin-right != $radio-margin-right
+    ) {
+        @include margin-shorthand((
+            top: $radio-margin-top,
+            bottom: $radio-margin-bottom,
+            left: $radio-margin-left,
+            right: $radio-margin-right
+        ));
+    }
+    @if $checkbox-margin-for-screens != $radio-margin-for-screens {
+        @include margin-shorthand-with-screens-support((), $radio-margin-for-screens);
+    }
+    @if $checkbox-vertical-align != $radio-vertical-align {
+        vertical-align: $radio-vertical-align;
+    }
+    @if mixin-exists(radio-extra-style) {
+        @include radio-extra-style();
+    }
+
+    &[disabled] {
+        @if $checkbox-disabled-cursor != $radio-disabled-cursor {
+            cursor: $radio-disabled-cursor;
+        }
+        @if mixin-exists(radio-disabled-extra-style) {
+            @include radio-disabled-extra-style();
+        }
+    }
+
+    ~ label {
+        @if $checkbox-label-display != $radio-label-display {
+            display: $radio-label-display;
+        }
+        @if (
+            $checkbox-label-margin-top != $radio-label-margin-top or
+            $checkbox-label-margin-bottom != $radio-label-margin-bottom or
+            $checkbox-label-margin-left != $radio-label-margin-left or
+            $checkbox-label-margin-right != $radio-label-margin-right
+        ) {
+            @include margin-shorthand((
+                top: $radio-label-margin-top,
+                bottom: $radio-label-margin-bottom,
+                left: $radio-label-margin-left,
+                right: $radio-label-margin-right
+            ));
+        }
+        @if $checkbox-label-margin-for-screens != $radio-label-margin-for-screens {
+            @include margin-shorthand-with-screens-support((), $radio-label-margin-for-screens);
+        }
+        @if $checkbox-label-vertical-align != $radio-label-vertical-align {
+            vertical-align: $radio-label-vertical-align;
+        }
+        @if mixin-exists(radio-label-extra-style) {
+            @include radio-label-extra-style();
+        }
     }
 }

@@ -1,16 +1,72 @@
 //Checkbox and Radio
-$checkbox-radio-margin-top: 0 !default;
-$checkbox-radio-margin-bottom: 0 !default;
-$checkbox-radio-margin-left: 0 !default;
-$checkbox-radio-margin-right: 5px !default;
-//Defined margins for each screens.
-$checkbox-radio-margin-for-screens: () !default;
-/*$checkbox-radio-margin-for-screens: (
-    s1: (
-        top: 20px, //Not required. Define only the margins values you want to change. Example - s2: ( top: 20px ) - change only top margin for screens greater than s2
-        bottom: 20px,
-        left: 20px,
-        right: 20px,
-    ),
-    ...
-) !default;*/
+//@mixin checkbox-radio-extra-style() {} //Create this mixin before import module when you want add some special style for element
+//@mixin checkbox-radio-disabled-extra-style() {} //Create this mixin before import module when you want add some special style for element
+//@mixin checkbox-radio-label-extra-style() {} //Create this mixin before import module when you want add some special style for element
+
+//Checkbox
+$checkbox-display: inline-block !default;
+$checkbox-vertical-align: middle !default;
+
+//Magins
+$checkbox-margin-top: 0 !default;
+$checkbox-margin-bottom: 0 !default;
+$checkbox-margin-left: 0 !default;
+$checkbox-margin-right: 0.4em !default;
+$checkbox-margin-for-screens: () !default;
+
+//Extra style
+//@mixin checkbox-extra-style() {} //Create this mixin before import module when you want add some special style for element
+
+//Disabled
+$checkbox-disabled-cursor: default !default;
+
+//Extra style
+//@mixin checkbox-disabled-extra-style() {} //Create this mixin before import module when you want add some special style for element
+
+//Label
+$checkbox-label-display: inline-block !default;
+$checkbox-label-vertical-align: middle !default;
+
+//Magins
+$checkbox-label-margin-top: 0 !default;
+$checkbox-label-margin-bottom: 0 !default;
+$checkbox-label-margin-left: 0 !default;
+$checkbox-label-margin-right: 0 !default;
+$checkbox-label-margin-for-screens: () !default;
+
+//Extra style
+//@mixin checkbox-label-extra-style() {} //Create this mixin before import module when you want add some special style for element
+
+//Radio
+$radio-display: $checkbox-display !default;
+$radio-vertical-align: $checkbox-vertical-align !default;
+
+//Magins
+$radio-margin-top: $checkbox-margin-top !default;
+$radio-margin-bottom: $checkbox-margin-bottom !default;
+$radio-margin-left: $checkbox-margin-left !default;
+$radio-margin-right: $checkbox-margin-right !default;
+$radio-margin-for-screens: $checkbox-margin-for-screens !default;
+
+//Extra style
+//@mixin radio-extra-style() {} //Create this mixin before import module when you want add some special style for element
+
+//Disabled
+$radio-disabled-cursor: $checkbox-disabled-cursor !default;
+
+//Extra style
+//@mixin radio-disabled-extra-style() {} //Create this mixin before import module when you want add some special style for element
+
+//Label
+$radio-label-display: $checkbox-label-display !default;
+$radio-label-vertical-align: $checkbox-label-vertical-align !default;
+
+//Magins
+$radio-label-margin-top: $checkbox-label-margin-top !default;
+$radio-label-margin-bottom: $checkbox-label-margin-bottom !default;
+$radio-label-margin-left: $checkbox-label-margin-left !default;
+$radio-label-margin-right: $checkbox-label-margin-right !default;
+$radio-label-margin-for-screens: $checkbox-label-margin-for-screens !default;
+
+//Extra style
+//@mixin radio-label-extra-style() {} //Create this mixin before import module when you want add some special style for element
